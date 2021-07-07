@@ -23,6 +23,19 @@ app.use(function(req, res, next){
 app.get('/', (req, res) => {
     res.send('API rodando')
 })
+app.get('/sendMail-dev', (req, res) => {
+    
+    const data = req.body
+    data.to = "yuri.erik.oliveira@gmail.com"
+    data.subject = "Teste de envio de e-mail"
+
+    try{
+        sendMail(data)
+        res.send({"statusCode": "200" })
+    }catch(e){
+        res.send({"statusCode": "400 -"+ e })
+    }
+})
 
 app.post('/sendMail', (req, res) => {
     
