@@ -10,14 +10,14 @@ export async function sendMail(data) {
 
     let transporter = nodemailer.createTransport({
         host: process.env.HOST_SENDER,
-        // pool: true,
-        // port: 465,
-        // secure: true,
-        port: 587,
-        secure: false,
+        pool: true,
+        port: 465,
+        secure: true,
+        // port: 587,
+        // secure: false,
         auth: {
-        user: process.env.EMAIL_SENDER, 
-        pass: process.env.PSW_SENDER, 
+            user: process.env.EMAIL_SENDER, 
+            pass: process.env.PSW_SENDER, 
         },
         tls: { rejectUnauthorized: false }
     });
@@ -31,7 +31,7 @@ export async function sendMail(data) {
     }
 
     let info = await transporter.sendMail({
-        from: process.env.EMAIL_SENDER, 
+        from: process.env.EMAIL_SENDER,
         to: data.to, 
         cc: data.cc,
         subject: data.subject, 
