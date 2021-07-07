@@ -1,0 +1,6 @@
+{
+    "template": "generic",
+    "to":"yuri.oliveira@brasoftware.com.br",
+    "subject":"Teste API envio de e-mails",
+    "descricao":"Uma descrição qualquer que vocÊ deseja enviar no e-mail."
+}
